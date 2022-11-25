@@ -1,10 +1,23 @@
+import type { ShoppingItem } from "@prisma/client";
+import { useState } from "react";
 import { type NextPage } from "next";
 import Head from "next/head";
-import Link from "next/link";
-
 import { trpc } from "../utils/trpc";
 
 const Home: NextPage = () => {
+  const [items, setItems] = useState<ShoppingItem[]>([]);
+
+  const {} = trpc.useMutation(["items.addItem"], {
+    onSuccess: (item) => {
+      setItems((prev) => [...prev, item]);
+    },
+  });
+  // const {} = trpc.useMutation(["items.addItem"], {
+  //   onSuccess: (item) => {
+  //     setItems((prev) => [...prev, item]);
+  //   },
+  // });
+
   return (
     <>
       <Head>
@@ -22,6 +35,14 @@ const Home: NextPage = () => {
             Add Shopping
           </button>
         </div>
+        <ul className="mt-4">
+          {items.map((item) => (
+            // eslint-disable-next-line react/jsx-key
+            <li key={item.id} className="flex items-center justify-between">
+              <span>{item.name}</span>
+            </li>
+          ))}
+        </ul>
       </main>
     </>
   );
