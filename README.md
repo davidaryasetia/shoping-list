@@ -2,6 +2,15 @@
 
 This is an app bootstrapped according to the [init.tips](https://init.tips) stack, also known as the T3-Stack.
 
+# Project Description
+
+This simple project is learn about t3 stactk typescript, nextjs, tailwind, and make a prisma as a orm database.
+This project make a to do list as similar shopping list which gonna make to learn about tRPC.
+
+# Database Configuration
+
+This project using a planet scale as a database platform, you can check out to this link https://planetscale.com/
+
 ## What's next? How do I make an app with this?
 
 We try to keep this project as simple as possible, so you can start with the most basic configuration and then move on to more advanced configuration.
