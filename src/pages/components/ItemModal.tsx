@@ -32,7 +32,10 @@ const ItemModal: FC<ItemModalProps> = ({ setModalOpen }) => {
           </button>
           <button
             type="button"
-            onClick={() => addItem({ name: input })}
+            onClick={() => {
+              addItem({ name: input });
+              setModalOpen(false);
+            }}
             className="m-2 rounded-md bg-gray-500 p-2 text-sm text-white transition hover:bg-gray-600"
           >
             Add
